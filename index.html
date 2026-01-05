@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tea Tree Serum - Pure Nature Skincare</title>
+    
+    <style>
+        :root { --primary: #1b4332; --secondary: #22c55e; --accent: #e11d48; --bg: #f8fafc; }
+        html,body { margin:0; padding:0; font-family: 'Segoe UI', Arial, sans-serif; background:var(--bg); color:#222; direction: rtl; scroll-behavior: smooth; }
+        
+        /* Banner & Header */
+        .sale-banner { background:var(--accent); color:#fff; padding:10px; font-weight:700; position:sticky; top:0; z-index:1000; font-size:14px; text-align:center; }
+        header { background:var(--primary); color:#fff; padding:20px; text-align:center; border-bottom: 4px solid var(--secondary); }
+        
+        .container { max-width:600px; margin:10px auto; background:#fff; padding:15px; border-radius:15px; box-shadow:0 4px 15px rgba(0,0,0,0.05); }
+        .product-img { width:100%; border-radius:12px; margin-bottom:15px; }
+
+        /* Pricing Box */
+        .price-box { text-align: center; margin: 20px 0; padding: 15px; background: #fff9f9; border-radius: 12px; border: 1px dashed var(--accent); }
+        .old-price { text-decoration:line-through; color:#888; font-size:18px; }
+        .new-price { font-size:40px; color:var(--accent); font-weight:900; display:block; }
+        .save-tag { background:var(--secondary); color:#fff; padding:4px 10px; border-radius:20px; font-size:12px; }
+
+        /* Trust Cards */
+        .trust-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 20px 0; }
+        .trust-card { background:#f0fdf4; padding:12px; border-radius:10px; text-align:center; border:1px solid #dcfce7; }
+        .trust-card span { font-size:24px; display:block; }
+        .trust-card p { margin:5px 0 0; font-size:13px; font-weight:700; color:var(--primary); }
+
+        /* Order Form */
+        .order-form { background:#fff; padding:20px; border-radius:15px; border:2px solid var(--secondary); margin-top:25px; box-shadow: 0 10px 25px rgba(34,197,94,0.15); }
+        label { display:block; font-weight:700; margin-bottom:5px; color:#444; }
+        input { width:100%; padding:14px; margin-bottom:15px; border-radius:8px; border:1px solid #ccc; box-sizing:border-box; font-size:16px; }
+        .btn-confirm { background:var(--secondary); color:#fff; width:100%; padding:18px; border:none; border-radius:10px; font-size:20px; font-weight:800; cursor:pointer; }
+
+        /* Review Section */
+        .review-card { background:#fff; border:1px solid #eee; margin-bottom:15px; padding:15px; border-radius:12px; border-right:5px solid #22c55e; }
+        .stars { color:#fbbf24; font-size:12px; margin-bottom:8px; }
+        .review-img { width:100px; height:100px; object-fit:cover; border-radius:8px; margin-bottom:10px; display:block; }
+
+        footer { text-align:center; padding:30px; background:var(--primary); color:#fff; margin-top:40px; }
+        .sticky-btn { position:fixed; bottom:0; left:0; right:0; padding:10px; background:white; display:none; z-index:999; box-shadow:0 -2px 10px rgba(0,0,0,0.1); }
+        @media (max-width:768px) { .sticky-btn { display:block; } }
+    </style>
+</head>
+<body>
+
+    <div class="sale-banner">🚚 FREE DELIVERY + 35% OFF (Limited Time)</div>
+
+    <header><h1>PURE NATURE SKINCARE</h1></header>
+
+    <main class="container">
+        <img src="https://postimg.cc/Yvjz2d7J"alt="Tea Tree Serum" class="product-img">
+
+        <div class="price-box">
+            <span class="old-price">Rs. 2,800</span>
+            <span class="new-price">Rs. 1,800/-</span>
+            <span class="save-tag">Aapki Bachat: Rs. 1,000</span>
+        </div>
+
+        <div class="trust-grid">
+            <div class="trust-card"><span>🌿</span><p>100% Organic</p></div>
+            <div class="trust-card"><span>🚫</span><p>No Side Effects</p></div>
+            <div class="trust-card"><span>✅</span><p>Best for Acne</p></div>
+            <div class="trust-card"><span>🚚</span><p>Free Delivery</p></div>
+        </div>
+
+        <div class="order-form" id="order-section">
+            <h3 style="text-align:center; color:var(--primary);">ORDER NOW (Cash On Delivery)</h3>
+            <form onsubmit="event.preventDefault(); sendOrder();">
+                <label>Pura Naam:</label>
+                <input type="text" id="name" placeholder="Naam likhein" required>
+                <label>WhatsApp Number:</label>
+                <input type="tel" id="phone" placeholder="03XXXXXXXXX" required pattern="^(\+92|0)?3\d{9}$">
+                <label>Address:</label>
+                <input type="text" id="address" placeholder="Mukammal pata" required>
+                <button type="submit" class="btn-confirm">CONFIRM ORDER 🛍️</button>
+            </form>
+        </div>
+
+        <div class="reviews" style="margin-top:30px;">
+            <h3 style="text-align:center;">Customer Feedback 😍</h3>
+            
+            <div class="review-card">
+                <strong>Ayesha Khan (Lahore) <span style="color:#22c55e; font-size:10px;">Verified ✅</span></strong>
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <img src="https://i.postimg.cc/mD8X0LhR/1767535757518.jpg" class="review-img">
+                <p>"Mera face pimples se bhar gaya tha, lekin is serum ne miracle kar diya."</p>
+            </div>
+
+            <div class="review-card">
+                <strong>Mariam (Karachi) <span style="color:#22c55e; font-size:10px;">Verified ✅</span></strong>
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <img src="https://i.postimg.cc/mD8X0LhR/1767535757518.jpg" class="review-img">
+                <p>"Oily skin ke liye best hai. Bilkul chip-chip nahi karta."</p>
+            </div>
+        </div>
+    </main>
+
+    <footer><p>© 2026 Pure Nature Skincare Pakistan</p></footer>
+
+    <div class="sticky-btn">
+        <button onclick="document.getElementById('order-section').scrollIntoView();" class="btn-confirm" style="padding:12px; font-size:16px;">ABHI ORDER KAREIN 🛒</button>
+    </div>
+
+    <script>
+        function sendOrder() {
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const address = document.getElementById('address').value;
+            const waNumber = '923183757056';
+            const message = `*NEW ORDER ALERT!*%0A*Product:* Tea Tree Serum%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Address:* ${address}`;
+            window.location.href = `https://wa.me/${waNumber}?text=${message}`;
+        }
+    </script>
+</body>
+</html>
