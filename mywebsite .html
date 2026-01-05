@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pure Nature - Tea Tree Serum</title>
+    <style>
+        body { font-family: sans-serif; margin: 0; padding: 0; background: #0b0f0d; color: white; text-align: center; }
+        .banner { background: #d90429; color: white; padding: 12px; font-weight: bold; font-size: 14px; position: sticky; top: 0; z-index: 1000; }
+        header { background: #1b4332; padding: 20px; border-bottom: 3px solid #22c55e; }
+        .container { max-width: 450px; margin: auto; padding: 15px; }
+        .product-img { width: 100%; border-radius: 20px; border: 2px solid #22c55e; margin-bottom: 15px; }
+        .price { font-size: 35px; color: #ff4d4d; font-weight: bold; margin: 5px 0; }
+        .card { background: #161b18; border: 1px solid #2d3631; border-radius: 20px; padding: 20px; margin-bottom: 20px; text-align: left; }
+        .benefits { list-style: none; padding: 0; }
+        .benefits li { margin: 8px 0; font-size: 15px; }
+        .benefits li::before { content: ; color: #22c55e; font-weight: bold; }
+        .input-box { width: 100%; padding: 15px; margin: 8px 0; border-radius: 10px; border: 1px solid #333; background: #000; color: white; box-sizing: border-box; }
+        .btn { background: #22c55e; color: white; padding: 18px; width: 100%; border: none; border-radius: 12px; font-size: 18px; font-weight: bold; cursor: pointer; }
+        .stars { color: #ffcc00; font-size: 16px; margin: 5px 0; }
+        .verified { color: #22c55e; font-size: 11px; float: right; font-weight: bold; }
+        .review-text { color: #ccc; font-style: italic; font-size: 13px; margin: 5px 0; }
+        .sticky-btn { position: fixed; bottom: 0; left: 0; width: 100%; background: #0b0f0d; padding: 10px; box-sizing: border-box; border-top: 1px solid #333; }
+    </style>
+</head>
+<body>
+
+    <div class="banner"> LIMITED TIME OFFER: FREE DELIVERY + 35% OFF </div>
+    <header><h2>Pure Nature Skin Care</h2></header>
+
+    <div class="container">
+        <img src="https://i.postimg.cc/YCzn3Psq/1767535757518.jpg" class="product-img">
+        <h2 style="margin:0; color:#22c55e;">Tea Tree Face Serum</h2>
+        <div class="price">Rs. 1800/-</div>
+
+        <div class="card">
+            <h3 style="color:#22c55e; margin-top:0;">Product Benefits</h3>
+            <ul class="benefits">
+                <li>Eliminates Acne & Pimples</li>
+                <li>Reduces Dark Spots & Acne Scars</li>
+                <li>Controls Excess Skin Oil</li>
+                <li>Deep Skin Hydration & Glow</li>
+            </ul>
+        </div>
+
+        <div class="card" id="order-form">
+            <h3 style="text-align:center; color:#22c55e; margin-top:0;">Shipping Details</h3>
+            <input type="text" id="custName" class="input-box" placeholder="Your Full Name">
+            <input type="text" id="custAddress" class="input-box" placeholder="Complete Address (City Name)">
+            <input type="tel" id="custPhone" class="input-box" placeholder="Phone / WhatsApp Number">
+            <button class="btn" onclick="sendOrder()">CONFIRM ORDER NOW ✅</button>
+        </div>
+
+        <h3 style="color:#22c55e;">Customer Reviews (1000+)</h3>
+        <div id="reviews-list"></div>
+        <div style="height: 100px;"></div>
+    </div>
+
+    <div class="sticky-btn">
+        <button class="btn" onclick="document.getElementById('order-form').scrollIntoView({behavior: 'smooth'})">ORDER NOW - RS. 1800</button>
+    </div>
+
+    <script>
+        const reviews = [
+            {n:"Ayesha Khan", c:"Lahore", r:"Amazing results! Pimples cleared in 3 days."},
+            {n:"Mariam Ali", c:"Karachi", r:"Best for oily skin. Non-greasy and effective."},
+            {n:"Saba Faisal", c:"Islamabad", r:"100% original product and fast delivery."},
+            {n:"Zainab Bibi", c:"Faisalabad", r:"Dark spots are fading. Loving the glow!"},
+            {n:"Fatima Malik", c:"Multan", r:"Skin texture improved so much. Highly recommended."},
+            {n:"Hina Gul", c:"Peshawar", r:"Perfect solution for my acne problems."},
+            {n:"Sanam", c:"Quetta", r:"Genuine product. Best tea tree serum in Pakistan."},
+            {n:"Amna", c:"Gujranwala", r:"Visible results in just one week. Great packing."},
+            {n:"Nida", c:"Sialkot", r:"Quick shipping and very affordable price."},
+            {n:"Iqra", c:"Rawalpindi", r:"My skin feels so soft and fresh. 10/10!"},
+            {n:"Kiran", c:"Hyderabad", r:"Absorbs quickly. No side effects at all."},
+            {n:"Sadia", c:"Bahawalpur", r:"Excellent quality. My face looks much cleaner now."},
+            {n:"Rabia", c:"Sargodha", r:"Best experience. Will order again definitely."},
+            {n:"Tayyaba", c:"Mardan", r:"Value for money. Results are very fast."},
+            {n:"Sumaira", c:"Mirpur", r:"Effective for dark circles and spots too."},
+            {n:"Farwa", c:"Sheikhupura", r:"Nature's best gift for acne-prone skin."},
+            {n:"Sobia", c:"Jhang", r:"Good packing and authentic product. Thanks!"},
+            {n:"Mahnoor", c:"R.Y. Khan", r:"Miracle in a bottle. Skin is glowing now."},
+            {n:"Bushra", c:"Okara", r:"Found my permanent skin care partner."},
+            {n:"Mehwish", c:"Sahiwal", r:"Five stars! Better than expensive brands."},
+            {n:"Naila", c:"Swat", r:"My acne marks are almost gone. Very happy."},
+            {n:"Anum", c:"Kohat", r:"Lightweight and smells natural. Love it."},
+            {n:"Shaista", c:"Dadu", r:"Highly effective for stubborn pimples."},
+            {n:"Sidra", c:"Okara", r:"Clear skin in just 10 days. Amazing!"},
+            {n:"Umm-e-Hani", c:"Sukkur", r:"Must buy for anyone with oily skin."}
+        ];
+
+        const list = document.getElementById('reviews-list');
+        reviews.forEach(rev => {
+            list.innerHTML += `
+                <div class="card" style="margin-bottom:12px; padding:15px;">
+                    <span class="verified">Verified </span>
+                    <strong>${rev.n} (${rev.c})</strong>
+                    <div class="stars"></div>
+                    <p class="review-text">"${rev.r}"</p>
+                </div>`;
+        });
+
+        function sendOrder() {
+            let name = document.getElementById('custName').value;
+            let addr = document.getElementById('custAddress').value;
+            let ph = document.getElementById('custPhone').value;
+            if(name=="" || addr=="" || ph=="") { alert("Fill all details!"); return; }
+            let msg = `*NEW ORDER*%0A*Item:* Tea Tree Serum%0A*Name:* ${name}%0A*Phone:* ${ph}%0A*Address:* ${addr}`;
+            window.open("https://wa.me/923183757056?text=" + msg, "_blank");
+        }
+    </script>
+</body>
+</html>
